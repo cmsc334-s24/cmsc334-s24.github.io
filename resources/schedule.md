@@ -6,7 +6,7 @@ sort: 1
 
 | Week | Lecture (Tue)                              | Lecture (Thr)                                 | Lab (Fri)                                        |
 | :--- | :---                                       | :---                                          | :---                                                  |
-| 1    | Jan 16:  <br />Topic -  [Security Principles](../lectures/01-Security-Principles.pdf)              | Jan 18:                                       | Jan 19: <br />Lab 1 - Linux Fundamentals<br />**Due** [Textbook Discussion - Chapter 1](textbook)                  |
+| 1    | Jan 16:  <br />Topic -  [Security Principles](../lectures/01-Security-Principles.pdf)              | Jan 18: <br />Topic -  Security Principles Cont. <br /> Module 1 - [Linux Fundamentals](https://tryhackme.com/client/65a64c60aaa293cf2b5547a1/path/join?code=jmocwfjyya) (Due Jan 25)                                      | Jan 19: <br />Lab 1 - [Linux Privilege Escalation](https://tryhackme.com/client/65a64c60aaa293cf2b5547a1/path/join?code=jmocwfjyya) (Due Jan 25)<br />**Due Today** [Textbook Discussion - Chapter 1](textbook)                  |
 | 2    | Jan 23:     | Jan 25:     | Jan 26:                |
 | 3    | Jan 30: <br />**Due** [Research Reading 1](reactions)     | Feb 1:      | Feb 2:                 |
 | 4    | Feb 6:      | Feb 8:      | Feb 9:                 |
