@@ -2,7 +2,7 @@
 sort: 3
 ---
 
-# Textbook Reading Assignments
+# Textbook Discussion Assignments
 
 **Textbook**
 
@@ -43,6 +43,11 @@ The following is required to earn full credit for the reading discussion assignm
 
 ### Chapter 1 - Due January 19th, 11:59 PM
 Link: [Chapter 1](https://people.scs.carleton.ca/~paulv/toolsjewels/TJrev1/ch1-rev1.pdf)
+</br>
+Total points: 10 
 
+### Chapter 3 - Due January 26th, 11:59 PM
+Link: [Chapter 3](https://people.scs.carleton.ca/~paulv/toolsjewels/TJrev1/ch3-rev1.pdf)
+</br>
 Total points: 10 
 
