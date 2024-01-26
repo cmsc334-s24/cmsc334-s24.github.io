@@ -1,7 +1,8 @@
 # Lab 2: Password Cracking
 
 * First read this page then start working through the lab with the GitHub classroom link below.
-* Github Classroom Link: []()
+* Github Classroom Link: [https://classroom.github.com/a/HJdTmSRC](https://classroom.github.com/a/HJdTmSRC)
+* Put your answers in the README.md file in the GitHub repository.
 
 ### Objective
 
