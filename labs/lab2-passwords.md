@@ -20,6 +20,8 @@ Learn about how passwords are cracked with the latest tools.
 
 ## Cracking Tool: `hashcat`
 
+![HashCat](../assets/images/hashcat.png "HashCat")
+
 ### Mask attack (Brute-force)
 
 [Mask attack](https://hashcat.net/wiki/doku.php?id=mask_attack): Try all combinations from a given keyspace just like in Brute-Force attack, but more specific. 
