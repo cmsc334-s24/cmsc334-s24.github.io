@@ -35,7 +35,7 @@ A __mask__ is a simple string that configures the keyspace of the password candi
 * __?d__ = 0123456789
 * __?h__ = 0123456789abcdef
 * __?H__ = 0123456789ABCDEF
-* __?s__ = !"#$%&'()*+,-./:;\<=\>?@[\\]^_\`{|}~
+* __?s__ = !"#$%&'()*+,-./:;\<=\>?@[\\]^_\`{}~
 * __?a__ = ?l?u?d?s
 * __?b__ = 0x00 - 0xff
 
@@ -101,7 +101,7 @@ A __mask__ is a simple string that configures the keyspace of the password candi
 
 ### Rule based attack
 
-[Rule Based Attack](https://hashcat.net/wiki/doku.php?id=rule_based_attack): The rule-based attack (-a 0 with one or more -r rules files) is one of the most complicated of all the attack modes. The reason for this is very simple. The rule-based attack is like a programming language designed for password candidate generation. It has functions to modify, cut or extend words and has conditional operators to skip some, etc. That makes it the most flexible, accurate and efficient attack. 
+[Rule Based Attack](https://hashcat.net/wiki/doku.php?id=rule_based_attack): The rule-based attack (`-a 0` with one or more `-r` rules files) is one of the most complicated of all the attack modes. The reason for this is very simple. The rule-based attack is like a programming language designed for password candidate generation. It has functions to modify, cut or extend words and has conditional operators to skip some, etc. That makes it the most flexible, accurate and efficient attack. 
 
 1. Copy the dive.rule file to your home directory.
     ```
