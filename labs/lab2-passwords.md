@@ -33,7 +33,7 @@ A __mask__ is a simple string that configures the keyspace of the password candi
 * __?d__ = 0123456789
 * __?h__ = 0123456789abcdef
 * __?H__ = 0123456789ABCDEF
-* __?s__ = «space»!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+* __?s__ = «space»!"#$%&'()*+,-./:;\<=\>?@[\]^_`{|}~
 * __?a__ = ?l?u?d?s
 * __?b__ = 0x00 - 0xff
 
