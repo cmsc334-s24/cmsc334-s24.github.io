@@ -99,6 +99,7 @@ __Step 3.__ Output your public key to a file.
     ```
 
 __Step 4.__ Take a look at your key. 
+* View the file.
     ```
     $ cat firstname.key
     ```
@@ -148,6 +149,8 @@ __Step 4.__ Take a look at your key.
     ```
 
 __Step 5.__ Copy your key to the directory `/opt/publickeys/`.
+
+* Copy the file.
     ```
     $ cp firstname.key /opt/publickeys/
     ```
