@@ -1,7 +1,6 @@
-# Public key encryption (Asymmetric encryption)
+# Public key encryption (asymmetric encryption)
 
-
-### Generating RSA public private key paris with `gpg`
+### Generating RSA public/private key pairs with `gpg`
 
 The `gpg` program is the OpenPGP encryption and signing tool. PGP stands for "pretty good protection". 
 
@@ -9,7 +8,7 @@ __Step 1.__ Generate a public private key pair.
 
 * First ssh to the Kali Linux machine. 
 
-* Run the following gpg command:
+* Run the following `gpg` command:
     ```
     $ gpg --full-generate-key
     ```
@@ -94,16 +93,14 @@ __Step 2.__ Verify that your keys where created.
 
 __Step 3.__ Output your public key to a file.
 
-* Run this gpg command to output your public key to a file (but change the email address to your email address):
+* Run this `gpg` command to output your public key to a file (but __change__ the email address to your email address and __change__ the name of your key to your firstname.key):
     ```
-    $ gpg --output ~/gpgpub.key --armor --export david.balash@richmond.edu
+    $ gpg --output ~/firstname.key --armor --export your.email@richmond.edu
     ```
 
-__Step 4.__ Send me your public key as a Slack dm on our Slack workspace.
-
-* Cat your gpgpub.key file and copy and paste the complete file. Including the "BEGIN PGP PUBLIC KEY BLOCK" and "END PGP PUBLIC KEY BLOCK" strings. 
+__Step 4.__ Take a look at your key. 
     ```
-    $ cat gpgpub.key
+    $ cat firstname.key
     ```
 * Here is what mine looks like:
     ```
@@ -149,15 +146,11 @@ __Step 4.__ Send me your public key as a Slack dm on our Slack workspace.
     =wZCC
     -----END PGP PUBLIC KEY BLOCK-----
     ```
-* Send this entire copied file to me on Slack.
 
-__Step 5.__ Decrypt a message that has been encrypted with your public key.
-* I will reply on Slack with a file named `alice.txt.gpg` that contains an encrypted message. 
+__Step 5.__ Copy your key to the directory `/opt/publickeys/`.
     ```
-    $ gpg --decrypt alice.txt.gpg
+    $ cp firstname.key /opt/publickeys/
     ```
-
-__Step 6.__ Send me a message on Slack with the clear text from the file `alice.txt`.
 
 
 
