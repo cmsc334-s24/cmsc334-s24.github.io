@@ -71,7 +71,7 @@ $ nano partnersname.txt
 
 __Step 7.__ Encrypt the plaintext message using your partner's _public_ key. 
 ```
-$ gpg --encrypt --armor -r your.partner@richmond.edu partnersname.txt
+$ gpg --encrypt --armor --recipient your.partner@richmond.edu partnersname.txt
 ```
 
 __Step 8.__ View your encrypted file.
@@ -107,7 +107,7 @@ $ gpg --decrypt partnersname.txt.asc
 __Step 14.__ Re-encrypt the partnersname.txt file but this time use __both__ your partner's and your public key.
 ```
 $ rm partnersname.txt.asc
-$ gpg --encrypt --armor -r your.partner@richmond.edu -r your.partner@richmond.edu partnersname.txt
+$ gpg --encrypt --armor --recipient your.partner@richmond.edu --recipient your.partner@richmond.edu partnersname.txt
 ```
 
 
@@ -163,7 +163,7 @@ Hint: You can use both the `--encrypt` and `--sign` options in a single command.
 
 * Example
 ```
-$ gpg --encrypt --sign --armor -r your.partner@richmond.edu partnersname.txt
+$ gpg --encrypt --sign --armor --recipient your.partner@richmond.edu partnersname.txt
 ```
 
 __Step 2.__ Experiment with the `gpg` command in step 1.  In the `README.md` file, write down the steps you took to share an encrypted and signed message. 
