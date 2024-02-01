@@ -107,7 +107,7 @@ $ gpg --decrypt partnersname.txt.asc
 __Step 14.__ Re-encrypt the partnersname.txt file but this time use __both__ your partner's and your public key.
 ```
 $ rm partnersname.txt.asc
-$ gpg --encrypt --armor --recipient your.partner@richmond.edu --recipient your.partner@richmond.edu partnersname.txt
+$ gpg --encrypt --armor --recipient your.partner@richmond.edu --recipient your.email@richmond.edu partnersname.txt
 ```
 
 
