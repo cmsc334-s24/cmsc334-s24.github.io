@@ -137,9 +137,9 @@ __Step 4.__ Copy your signed file to the `/opt/signed/` directory.
 $ cp signedbyyourname.txt.asc /opt/signed/
 ```
 
-__Step 5.__ Copy the encrypted file that your partner left for you in the `/opt/messages` directory to your home directory.
+__Step 5.__ Copy the encrypted file that your partner left for you in the `/opt/signed` directory to your home directory.
 ```
-$ cd /opt/messages/
+$ cd /opt/signed/
 $ ls 
 $ cp signedbypartner.txt.asc ~
 ```
