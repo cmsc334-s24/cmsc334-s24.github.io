@@ -3,7 +3,7 @@
 * First read this page then start working through the lab with the GitHub classroom link below. 
 * The files that you need to complete this lab are also found in the GitHub repository.
 * Put your answers in the README.md file in the GitHub repository.
-* Github Classroom Link: []()
+* Github Classroom Link: [https://classroom.github.com/a/U3E915nJ](https://classroom.github.com/a/U3E915nJ)
 
 ### Objective
 
