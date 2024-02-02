@@ -7,7 +7,9 @@
 
 ### Objective
 
-Learn about how a substitution cipher can be analyzed and deciphered. 
+Learn about how to use _frequency analysis_ to crack a substitution cipher.
+
+__Frequency Analysis__: This is the most classic method, exploiting the fact that in any given language, certain letters and combinations of letters occur with characteristic frequencies. By analyzing the frequency of letters in the ciphertext and comparing them to known frequencies in the target language, an attacker can start to guess which letters correspond to which in the cipher.
 
 ### Cryptanalysis and cipher text cracking
 
