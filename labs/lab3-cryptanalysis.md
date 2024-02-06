@@ -97,16 +97,18 @@ Your task for this part of the lab is to write two programs: `freq` and `sub`. T
  Note, that your `sub` program can both encrypt and decrypt, depending on the key.
  
  
-<div class="requirement">
+---
+### Requirements
+
 
 You should complete the following for this part of the lab
 1. Write a `freq` program based on the specifications above. 
 2. Write a `sub` program based on the specifications above
 3. Use `freq` program and the example `gatsby.txt` for your letter distribution to determine the key for `cipher.txt`
 4. Once you believe you've successfully decrypted the message, save it by running the following command:
-  ```
-  ./sub key.txt cipher.txt > plain.txt
-  ```
-This will save the output to a file called `plain.txt`. Add that file to your repo for submission. 
+   ```
+   $ ./sub key.txt cipher.txt > plain.txt
+   ```
+5. This will save the output to a file called `plain.txt`. Add that file to your repo for submission. 
 
-</div>
+
