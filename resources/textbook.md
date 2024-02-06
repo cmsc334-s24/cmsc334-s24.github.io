@@ -51,3 +51,8 @@ Link: [Chapter 3 (Sections 3.1 - 3.7)](https://people.scs.carleton.ca/~paulv/too
 <br />
 Total points: 10 
 
+### Chapter 6 - Due February 15, 11:59 PM
+Link: [Chapter 6 (Sections 6.1 - 6.4, and 6.5 - 6.8)](https://people.scs.carleton.ca/~paulv/toolsjewels/TJrev1/ch6-rev1.pdf)
+<br />
+Total points: 10 
+

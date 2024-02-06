@@ -7,17 +7,22 @@ sort: 2
 ### Assignment 1 - Due January 30, 11:59 PM
 * **A Two-Decade Retrospective Analysis of a University's Vulnerability to Attacks Exploiting Reused Password** by Nisenoff et al.
 * GitHub classroom assignment link: [https://classroom.github.com/a/KG2NKtSx](https://classroom.github.com/a/KG2NKtSx)
+Total points: 100 
+
 
 ### Assignment 2 - Due February 20, 11:59 PM
 * **Thou Shalt Not Depend on Me: Analysing the Use of Outdated JavaScript Libraries on the Web** by Lauinger et al.
 * GitHub classroom assignment link: [https://classroom.github.com/a/kQsDF8mk](https://classroom.github.com/a/kQsDF8mk)
+Total points: 100 
 
 ### Assignment 3 - Due March 26, 11:59 PM
 * **The Matter of Heartbleed** by Durumeric et al.
 * GitHub classroom assignment link: [https://classroom.github.com/a/tzWP7Zmm](https://classroom.github.com/a/tzWP7Zmm)
+Total points: 100 
 
 ### Assignment 4 - Due April 16, 11:59 PM
 * **Choose your own paper**
 * GitHub classroom assignment link: [https://classroom.github.com/a/-fK81XJd](https://classroom.github.com/a/-fK81XJd)
+Total points: 100 
 
 
