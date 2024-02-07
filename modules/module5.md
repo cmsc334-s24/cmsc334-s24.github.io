@@ -1,7 +1,7 @@
 # Module 5: Software Vulnerabilities
 
 * Put your answers in the README.md file in the GitHub repository.
-* Github Classroom Link: [https://classroom.github.com/a/cGM5us4\_](https://classroom.github.com/a/cGM5us4\_)
+* Github Classroom Link: [https://classroom.github.com/a/cGM5us4\_](https://classroom.github.com/a/cGM5us4_)
 
 
 ### Vulnerabilities Enumerated
