@@ -238,7 +238,7 @@ The program above is a __root-owned__ `Set-UID` program. So when the program is 
 2. Change the owner and permissions of the vulnerable executable file. The owner of the file will be the root user, and the permissions will be read, write, and execute as the root user. 
     ```bash
     $ sudo chown root vulnerable
-    $ sudo chown 4755 vulnerable
+    $ sudo chmod 4755 vulnerable
     ```
 3. Test the program on a simple file. The program will open a file and add the contents of another file piped to it.
     ```bash
