@@ -58,7 +58,7 @@ int main()
     $ ls -l print_user_id
     ```
 
-7. Change the permissions on the `print_user_id` file with the `chmod` command. The new permission should allow the user running the command to assume the _effective_ user id (EUID) of the owner of the file.
+7. Change the permissions on the `print_user_id` file with the `chmod` command. The new permission should allow the user running the command to assume the _effective_ user id (`EUID`) of the owner of the file.
 
     ```bash
     $ ls -l print_user_id
@@ -72,7 +72,7 @@ int main()
 
 8. What do the new permissions allow for the file `print_user_id`?
 
-9. Run the program and record the results. What was the real user id (`UID`) and the effective user id (`EUID`)? How is this different from step #5 above. 
+9. Run the program and record the results. What was the _real_ user id (`UID`) and the _effective_ user id (`EUID`)? How is this different from step #5 above. 
     ```bash
     $ ./print_user_id
     ```
@@ -82,7 +82,7 @@ int main()
 
 ### Introduction to Symbolic Links
 
-Symbolic links (also known as symlinks or soft links) are special types of files that reference another file or directory.  They point to the pathname of the target file. This means that if the target file moves or is removed, the symbolic link may break and no longer work as expected.
+Symbolic links (also known as symlinks or soft links) are special types of files that reference another file or directory.  They point to the pathname of the target file. 
 
 1. Create a new file named `example_file.txt`:
 
@@ -95,7 +95,7 @@ Symbolic links (also known as symlinks or soft links) are special types of files
     ```bash
     cat example_file.txt
     ```
-3. Create a symbolic link named `symlink_to_example.txt` pointing to `example_file.txt`:
+3. Using the `ln` (link) command, create a symbolic link named `symlink_to_example.txt` pointing to `example_file.txt`:
 
     ```bash
     ln -s example_file.txt symlink_to_example.txt
@@ -104,7 +104,7 @@ Symbolic links (also known as symlinks or soft links) are special types of files
 4. List the files in the directory to see the link:
 
     ```bash
-    ls -l
+    ls -l symlink_to_example.txt example_file.txt
     ```
     Note the `l` at the start of the symbolic link's permissions, indicating it is a link, and observe the path it points to.
 
@@ -243,7 +243,7 @@ The program above is a __root-owned__ `Set-UID` program. So when the program is 
 3. Test the program on a simple file. The program will open a file and add the contents of another file piped to it.
     ```bash
     $ echo "Hello World!" > file1.txt
-    # cat file1.txt
+    $ cat file1.txt
     $ ./vulnerable file2.txt < file1.txt
     $ cat file2.txt
     ```
@@ -258,23 +258,23 @@ The program above is a __root-owned__ `Set-UID` program. So when the program is 
 2. Save the password that you generated. We will use this later for the `password_input.txt` file.
 
 3. Create a new file called `password_input.txt`. In this new file enter the following. Except replace `yournetid_root` with your `netid` followed by `_root`. And replace the string `hashed_password` with the password you created in step 2 above.
-
     ```bash
     $ nano password_input.txt 
     ```
-* add the following (but modify as directed above):
+4.  Add the following text to the `password_input.txt` file. Remember to replace `yournetid_root` and `hashed_password`.
     ```
     yournetid_root:hashed_password:0:0::/root:/bin/zsh
     ```
-4. Notice that this line looks suspiciously like the root user entry in the `/etc/passwd` file. It has a UID of 0, and a GUID of 0, which is the user id and group id of the root user. A user with this id will have __root privileges__ on the system. The goal of this lab is to trick the vulnerable program into inserting this string into the `/etc/passwd` file.
-5. Remind yourself what the `/etc/passwd` file looks like and what each item between the `:` means.
+5. Notice that this line looks suspiciously like the root user entry in the `/etc/passwd` file. It has a `UID` of 0, and a `GUID` of 0, which is the user id and group id of the root user. A user with this id will have __root privileges__ on the system. The goal of this lab is to trick the vulnerable program into inserting this string into the `/etc/passwd` file.
+6. View the `/etc/passwd` file.
     ```bash
     $ cat /etc/passwd
     ```
+7. What does each field between the `:` represent?
 
 #### The target process shell script
 
-We need a shell script that will continuously call the vulnerable program until the new entry has been added to the /etc/passwd file. The script will check the last modified timestamp of the file and will stop running the while loop when the last modified timestamp has changed. 
+We need a shell script that will continuously call the vulnerable program until the new entry has been added to the `/etc/passwd` file. The script will check the last modified timestamp of the file and will stop running the while loop when the last modified timestamp has changed. 
 
 __target_process.sh__
 ```bash
