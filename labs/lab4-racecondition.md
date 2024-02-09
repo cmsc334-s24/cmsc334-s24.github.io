@@ -1,5 +1,5 @@
 # Lab 4: Race Condition Vulnerability
-
+<br /> Lab 4 - [Race Condition Vulnerability](../labs/lab4-racecondition.md) (Due Feb 15)
 * First read this page then start working through the lab with the GitHub classroom link below. 
 * The files that you need to complete this lab are also found in the GitHub repository.
 * Put your answers in the `README.md` file in the GitHub repository.
@@ -9,11 +9,65 @@
 
 Learn about how to take advantage of a race condition in a vulnerable program to gain root access to a Linux machine with the goal of identifying and preventing such vulnerabilities.
 
+### Understanding Effective User ID
+
+The `print_user_id.cpp` below will print both the _real_ user id (`UID`) and the _effective_ user id (`EUID`). 
+
+__print_user_id.cpp__
+```c++
+#include <iostream>
+#include <unistd.h>     // For getuid() and geteuid()
+using namespace std;
+
+int main() 
+{
+    // Print the username, and the real and effective UIDs. 
+    cout << "Username: " << getlogin() << endl;
+    cout << "Real UID: " << getuid() << endl;
+    cout << "Effective UID: " << geteuid() << endl;
+
+    return 0;
+}
+```
+
+1. Using the g++ compiler on the command line. Compile the `print_user_id.cpp` code.
+    ```bash
+    $ g++ print_user_id.cpp -o print_user_id
+    ```
+
+2. View and set the permissions for the `print_user_id` program.
+    ```bash
+    $ ls -l print_user_id
+    $ chmod 0700 print_user_id
+    $ ls -l print_user_id
+    ```
+
+3. Who is the owner of the `print_user_id` program? 
+
+4. What do the permission allow for the file `print_user_id`?
+
+5. Run the program and record the results. What was the real user id and the effective user id?
+
+    ```bash
+    $ ./print_user_id
+    ```
+
+5. Change the owner `print_user_id` file, so that `root` is the owner. This will require the use of the `sudo` command, aka. "super user do". Note: You may be asked to type in your password to run this command. 
+
+    ```bash
+    $ ls -l print_user_id
+    $ sudo chown root print_user_id
+    $ ls -l print_user_id
+    ```
+6. Change the permissions on the `print_user_id` file. The new permission should allow the user running the command to 
+
+
+
 ### Race Condition Vulnerability
 
-There is a specific type of race condition found in programs. This race occurs when checking for a _condition_ before using a _resource_. The security vulnerability that occurs as a result is called __Time-Of-Check-To-Time-Of-Use__ (TOCTTOU). In this lab we will focus on this type of software vulnerability. 
+There is a specific type of race condition found in programs. This race occurs when checking for a _condition_ before using a _resource_. The security vulnerability that occurs as a result is called __Time-Of-Check-To-Time-Of-Use__ (TOCTTOU) vulnerability. In this lab we will focus on this type of software vulnerability. 
 
-Consider the following program with a TOCTTOUR race condition vulnerability.
+Consider the following program that contains a __TOCTTOU__ race condition vulnerability.
 
 __vulnerable.cpp__
 ```c++
