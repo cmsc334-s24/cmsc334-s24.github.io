@@ -244,6 +244,7 @@ The program above is a __root-owned__ `Set-UID` program. So when the program is 
     ```bash
     $ echo "Hello World" > file1.txt
     $ cat file1.txt
+    $ touch file2.txt
     $ ./vulnerable file2.txt < file1.txt
     $ cat file2.txt
     ```
