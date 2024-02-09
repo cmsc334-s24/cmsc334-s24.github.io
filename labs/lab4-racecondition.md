@@ -1,5 +1,6 @@
 # Lab 4: Race Condition Vulnerability
 
+* __Please Note:__ This lab must be completed on our Kali Linux machine. 
 * First read this page then start working through the lab with the GitHub classroom link below. 
 * The files that you need to complete this lab are also found in the GitHub repository.
 * Put your answers in the `README.md` file in the GitHub repository.
