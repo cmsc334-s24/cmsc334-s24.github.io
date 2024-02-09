@@ -1,5 +1,5 @@
 # Lab 4: Race Condition Vulnerability
-<br /> Lab 4 - [Race Condition Vulnerability](../labs/lab4-racecondition.md) (Due Feb 15)
+
 * First read this page then start working through the lab with the GitHub classroom link below. 
 * The files that you need to complete this lab are also found in the GitHub repository.
 * Put your answers in the `README.md` file in the GitHub repository.
@@ -44,23 +44,128 @@ int main()
 
 3. Who is the owner of the `print_user_id` program? 
 
-4. What do the permission allow for the file `print_user_id`?
+4. What do the permissions allow for the file `print_user_id`?
 
-5. Run the program and record the results. What was the real user id and the effective user id?
-
+5. Run the program and record the results. What was the real user id (`UID`) and the effective user id (`EUID`)?
     ```bash
     $ ./print_user_id
     ```
 
-5. Change the owner `print_user_id` file, so that `root` is the owner. This will require the use of the `sudo` command, aka. "super user do". Note: You may be asked to type in your password to run this command. 
-
+6. Change the owner `print_user_id` file, so that `root` is the owner. This will require the use of the `sudo` command, aka. "super user do". Note: You may be asked to type in your password to run this command. 
     ```bash
     $ ls -l print_user_id
     $ sudo chown root print_user_id
     $ ls -l print_user_id
     ```
-6. Change the permissions on the `print_user_id` file. The new permission should allow the user running the command to 
 
+7. Change the permissions on the `print_user_id` file with the `chmod` command. The new permission should allow the user running the command to assume the _effective_ user id (EUID) of the owner of the file.
+
+    ```bash
+    $ ls -l print_user_id
+    $ sudo chmod 4755 print_user_id
+    $ ls -l print_user_id
+    ```
+
+    The `4` digit in the `chmod` command above specifies the set user ID (`SUID`) special permission. When the `SUID` bit is set on an executable file, users who run the executable file get the permissions of the file's owner (usually `root`) for the execution duration of that program. This is useful for allowing users to execute programs with temporarily elevated privileges without giving them full `root` access.
+
+    The effect of `chmod 4755 program` is to make program executable by everyone, with the owner's permissions applied to users while the program is running. This is especially important for programs that need to perform tasks requiring higher privileges than those of the current user
+
+8. What do the new permissions allow for the file `print_user_id`?
+
+9. Run the program and record the results. What was the real user id (`UID`) and the effective user id (`EUID`)? How is this different from step #5 above. 
+    ```bash
+    $ ./print_user_id
+    ```
+
+10. Give an example of when it might be useful to have a program that can run as `root`, but be executed by a regular user.
+
+
+### Introduction to Symbolic Links
+
+Symbolic links (also known as symlinks or soft links) are special types of files that reference another file or directory.  They point to the pathname of the target file. This means that if the target file moves or is removed, the symbolic link may break and no longer work as expected.
+
+1. Create a new file named `example_file.txt`:
+
+    ```bash
+    echo "File to be linked." > example_file.txt
+    ```
+
+2. Verify the file's existence and content:
+
+    ```bash
+    cat example_file.txt
+    ```
+3. Create a symbolic link named `symlink_to_example.txt` pointing to `example_file.txt`:
+
+    ```bash
+    ln -s example_file.txt symlink_to_example.txt
+    ```
+
+4. List the files in the directory to see the link:
+
+    ```bash
+    ls -l
+    ```
+    Note the `l` at the start of the symbolic link's permissions, indicating it is a link, and observe the path it points to.
+
+5. Display the content of the symbolic link:
+
+    ```bash
+    cat symlink_to_example.txt
+    ```
+
+    You'll see the content of `example_file.txt`, demonstrating that the symlink acts as a pointer to the original file.
+
+6. Modify the content of `example_file.txt`:
+
+    ```bash
+    echo "Updated content file." >> example_file.txt
+    ```
+
+7. Display the content of the symbolic link:
+
+    ```bash
+    cat symlink_to_example.txt
+    ```
+
+8. Modify the content of `symlink_to_example.txt`:
+
+    ```bash
+    echo "Updated link file." >> symlink_to_example.txt
+    ```
+
+9. Display the content of the example file:
+
+    ```bash
+    cat example_file.txt
+    ```
+
+10. Create a link to the `/etc/passwd` file.
+    ```bash
+    ln -s /etc/passwd symlink_to_passwd
+    ```
+
+11. List the file to see the link:
+
+    ```bash
+    ls -l symlink_to_passwd
+    ```
+
+12. Display the content of the `symlink_to_passwd` file:
+
+    ```bash
+    cat symlink_to_passwd
+    ```
+
+13. Attempt to write to `symlink_to_passwd`.
+    ```bash
+    echo "Modify passwd" >> symlink_to_passwd
+    ```
+
+14. Did you successfully modify the `/etc/passwd` file? Why or why not?
+    ```bash
+    cat /etc/passwd
+    ```
 
 
 ### Race Condition Vulnerability
