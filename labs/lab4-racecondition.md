@@ -312,6 +312,11 @@ echo "The password file has changed. Stopping..."
 
 2. In the bash shell script `target_process.sh` change the name of the target file from `/tmp/yournetid.txt` to use your `netid`.
 
+3. Set the permission of `target_process.sh` so that it is executable.
+    ```bash
+    $ chmod 755 target_process.sh
+    ```
+
 #### The attack process program
 
 We need an attack process program to run in parallel to the target process. This attack program will rapidly switch the target file `/tmp/yournetid.txt` back and forth from a file that is writable by the user that can pass the `access()` function (__Time-Of-Check__) to a file the is writable only by root that can be modified by the `open()` function (__Time-Of-Use__). To do this we are going to use the Linux file system ability to create symbolic links between files. 
