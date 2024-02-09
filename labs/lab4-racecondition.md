@@ -242,7 +242,7 @@ The program above is a __root-owned__ `Set-UID` program. So when the program is 
     ```
 3. Test the program on a simple file. The program will open a file and add the contents of another file piped to it.
     ```bash
-    $ echo "Hello World!" > file1.txt
+    $ echo "Hello World" > file1.txt
     $ cat file1.txt
     $ ./vulnerable file2.txt < file1.txt
     $ cat file2.txt
