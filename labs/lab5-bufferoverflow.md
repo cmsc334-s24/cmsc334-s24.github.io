@@ -8,7 +8,7 @@
 * First read this page then start working through the lab with the GitHub classroom link below. 
 * The files that you need to complete this lab are also found in the GitHub repository.
 * Put your answers in the `README.md` file in the GitHub repository.
-* Github Classroom Link: []()
+* Github Classroom Link: [https://classroom.github.com/a/ezrG-uE\_](https://classroom.github.com/a/ezrG-uE_)
 
 
 ### Objective
@@ -19,10 +19,10 @@ Learn about how to take advantage of a buffer overflow in a vulnerable program t
 ### Invoking Shellcode 
 
 I have provided the binary shellcode to spawn a new `/bin/sh` shell, and
-placed the code in a C program called `shellcode.c`. 
+placed the code in a C program called `call_shellcode.c`. 
 
-__shellcode.c__
-```C
+__call_shellcode.c__
+```c
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -47,8 +47,8 @@ int main(int argc, char **argv)
 Compile and run the program and describe your observations. It should be noted that the compilation uses the `execstack` option, which allows code to be executed from the stack; without this option, the program will fail.
 
 ```SHELL
-$ gcc -m32 -z execstack shellcode.c -o shellcode
-$ ./shellcode
+$ gcc -m32 -z execstack call_shellcode.c -o call_shellcode
+$ ./call_shellcode
 ```
 
 Confirm you are in the `/bin/sh` shell. Then exit back to `/bin/zsh`.
@@ -61,8 +61,8 @@ $ exit
 Compile the program without the -z execstack option. Does it spawn the shell?
 
 ```SHELL
-$ gcc -m32 shellcode.c -o shellcode
-$ ./shellcode
+$ gcc -m32 call_shellcode.c -o call_shellcode
+$ ./call_shellcode
 ```
 
 
@@ -71,10 +71,10 @@ $ ./shellcode
 The vulnerable program used in this lab is called 
 `stack.c`, which is in your GitHub repository for this lab. 
 This program has a buffer-overflow vulnerability,
-and your job is to exploit this vulnerability and gain the root privilege. 
+and your job is to exploit this vulnerability and spawn a shell. 
 
 __stack.c__
-```C
+```c
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -144,7 +144,9 @@ Because `strcpy()` does not check boundaries, buffer overflow will occur.
 It should be noted that the program gets its input from a file called `badfile`.
 This file is under the user's control. Now, our objective is to 
 create the contents for `badfile`, such that when the vulnerable program
-copies the contents into its buffer, a shell can be spawned.
+copies the contents into its buffer, a shell can be spawned. 
+
+Start your investigation of this buffer overflow by drawing a picture of the stack when the code reaches the line `strcpy(buffer, str);` in the `bof()` function.
 
 ### Compilation and Investigation
 
@@ -171,7 +173,7 @@ We need to create a file called `badfile` before running the program.
 $ touch badfile
 ```
 
-Next, lets investigate the binary with the debugger to find the buffer's starting position and the place where the return-address is stored. Remember the formula for this is: `offset = ebp - starting_address_of_buffer + 4`. Convert to decimal to get the number of bytes. 
+Next, lets investigate the binary with the debugger to find the buffer's starting position and the place where the return-address is stored. We want to find the distance (number of bytes) from the start of the buffer that we are going to overflow to the place where we will store the return address. This overflow distance is a decimal number of bytes. Remember the formula for this is: `offset = ebp - starting_address_of_buffer + 4`. Convert to decimal to get the number of bytes. 
 
 
 Start the debugger. Set a break point at function `bof()`. Start executing the program.
@@ -186,6 +188,7 @@ gef➤ print &buffer
 gef➤ quit 
 ```
 
+Write down your calculation of the offset in the `README.md` file in your GitHub repository. 
 
 ### Launching Attacks
 
@@ -213,7 +216,7 @@ content = bytearray(0x90 for i in range(517))
 ##################################################################
 # Put the shellcode somewhere in the payload
 start = 0               # Change this number 
-content[start:start + len(shellcode)] = shellcode
+content[start:(start + len(shellcode))] = shellcode
 
 # Decide the return address value 
 # and put it somewhere in the payload
@@ -221,7 +224,7 @@ ret    = 0x00           # Change this number
 offset = 0              # Change this number 
 
 L = 4     # Use 4 for 32-bit address and 8 for 64-bit address
-content[offset:offset + L] = (ret).to_bytes(L,byteorder='little') 
+content[offset:(offset + L)] = (ret).to_bytes(L,byteorder='little') 
 ##################################################################
 
 # Write the content to a file
@@ -233,7 +236,7 @@ with open('badfile', 'wb') as f:
 Note: you must replace 3 numbers labelled `# Change this number`. 
 
 After you finish the above program, run it. This will generate
-the contents for `badfile`. Take note of the number of bytes in the `badfile`. 
+the contents for `badfile`. Take note in your `README.md` file of the number of bytes in the `badfile`. Why is this the case?
 
 ```SHELL
 $ ./exploit.py
@@ -242,10 +245,11 @@ $ wc badfile
 $ cat badfile  
 ```
 
+
 In your `README.md` file, explain how the values used in your 
 `exploit.py` are decided. These values are the most 
 important part of the attack, so give a detailed explanation. 
-Include a drawing of the stack memory at the time of the attack.
+Include a __drawing__ of the stack memory at the time of the attack. This can be a hand drawing that you take a picture of and add to your repository.
 
 
 Next, let's see how the attack looks from the debugger.
@@ -256,7 +260,7 @@ gef➤ break bof
 gef➤ run
 ```
 
-We should stopped on the line with the buffer overflow, but this line has not been executed yet.  Let's examine the memory around in the buffer, and after ebp __before__ the overflow. We will use the `x` command which is the `examine` command in `gdb`, and we will specify 100 words(4 bytes each) to examine. We will also inspect the stack.
+The debugger will stop on the line with the buffer overflow, but this line has not been executed yet.  Let's examine the memory around in the buffer, and after ebp __before__ the overflow. We will use the `x` command which is the examine command in `gdb`, and we will specify 100 words(4 bytes each) to examine. We will also inspect the stack. Make a note of what you find in your `README.md` file.
 
 ```SHELL 
 gef➤ x/100wx &buffer
@@ -264,7 +268,7 @@ gef➤ x/100wx $ebp
 gef➤ info stack
 ```
 
-Now, lets execute the buffer overflow line of code, and then reexamine the memory.
+Now, lets execute the buffer overflow line of code, and then reexamine the memory. Make a note of what you find in your `README.md` file.
 
 ```SHELL
 gef➤ step
@@ -273,7 +277,7 @@ gef➤ x/100wx $ebp
 gef➤ info stack
 ```
 
-What has changed? Record this observation.
+What has changed? Record this observation in your `README.md` file.
 
 Now, we can `continue` the execution, and if everything is working correctly, it will slide down the `nop` sled and run the `shellcode`.  You should see a `$` prompt and be inside a new shell.
 
@@ -290,3 +294,5 @@ You can now exit the shell and quit the debugger.
 $ exit
 gef➤ quit 
 ```
+
+
