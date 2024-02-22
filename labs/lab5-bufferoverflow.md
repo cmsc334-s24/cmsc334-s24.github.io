@@ -235,7 +235,15 @@ with open('badfile', 'wb') as f:
 
 Note: you must replace 3 numbers labelled `# Change this number`. 
 
-After you finish the above program, run it. This will generate
+After you finish the above program, make sure the file has user execute permission.
+
+```SHELL
+$ ls -l exploit.py
+$ chmod u+x exploit.py
+$ ls -l exploit.py 
+```
+
+Now run the Python program. This will generate
 the contents for `badfile`. Take note in your `README.md` file of the number of bytes in the `badfile`. Why is this the case?
 
 ```SHELL
