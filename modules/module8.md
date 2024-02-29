@@ -60,6 +60,7 @@ Create your own home page. You can work with `nano` or `VSCode` connecting remot
 
 ```SHELL
 $ sudo rm index.html
+$ sudo chmod 777 /var/www/html
 $ nano index.html
 ```
 
