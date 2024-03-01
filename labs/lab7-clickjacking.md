@@ -1,4 +1,4 @@
-# Lab 5: Clickjacking
+# Lab 7: Clickjacking
 
 * First read this page then start working through the lab with the GitHub classroom link below. 
 * The files that you need to complete this lab are also found in the GitHub repository.
@@ -62,18 +62,20 @@ The attacker website will be hosted on your `attackwebdev#` web server. Copy the
 
 In the `cupcakes` folder, you will find the files comprising the website for Alice's Cupcakes: `index.html` and `defender.css`. In the `attack` folder, you will find the files comprising the attacker's web-site: `attacker.html` and `attacker.css`. You will be making changes to all of these files except `defender.css` throughout the lab. Our first step as the attacker is to add code to `attacker.html` so that it mimics the Alice's Cupcakes website as closely as possible. A common way to do this is with an HTML Inline Frame element ("__iframe__"). An `iframe` enables embedding one HTML page within another. The `src` attribute of the `iframe` specifies the site to be embedded, and when the `iframe` code is executed on a page, the embedded site is loaded into the `iframe`.
 
-Embed the defender's site into the attacker's site.
+Embed the defender's site (Alice's cupcakes) into the attacker's site.
 
 - Add an `iframe` HTML element in `attacker.html` that pulls from `https://spiderwebdev#.xyz/cupcakes/`.
 - Modify the CSS in `attacker.css` using the height, width, and position attributes to make the iframe cover the whole page and the button overlay the `iframe`.
 - Hints:
+    - View the html files in the `examples` folders and load them in the browser to see the results. 
     - Explicitly set the `iframe` to have no border.
     - Investigate the 'absolute' and 'relative' settings of the position attribute to determine which should be used.
     - Test your changes by navigating to the attacker's website. (Remember that you may need to clear the browser's cache and reload the page to see changes made after the initial load.)
     - __Note:__ you should also modify the version number of the css in the `attacker.html` file each time you modify the `attacker.css` file, this will instruct the browser to load your new version of the css file. For example, change `version=1` to `version=2` the first time you modify `attacker.css`. You still need to clear the cache in the browser.  On `Firefox` this is done by going to `History->Clear Recent History...`, then clicking the `Clear Now` button.
-    ```HTML
-    <link href="attacker.css?version=1" type="text/css" rel="stylesheet"/>
-    ```
+
+```HTML
+<link href="attacker.css?version=1" type="text/css" rel="stylesheet"/>
+```
 
 __Question:__
 
@@ -90,22 +92,29 @@ __Questions:__
 3. What happens when you click on the "Explore Menu" button on the attacker's site?
 4. Describe an attack scenario in which the style of __clickjacking__ implemented for this Task leads to undesirable consequences for a victim user.
 
-### Bust That Frame!
+### Task 2: Bust That Frame!
 
 "Frame busting" is the practice of preventing a web page from being displayed within a frame, thus defending against the type of attack implemented in the previous Task. One way to bust frames is to include script code in the webpage source that prevents the site from being framed – that is, it prevents other sites from opening the webpage in an `iframe`. In this Task we will add script code to the defender's webpage that ensures it is the topmost window on any page where it is being displayed, thus preventing buttons on an attacker's page from being overlaid on top of it.
 
-Write the frame-busting script. Open the file defender/index.html, which contains code for the Alice's Cupcakes homepage. We would like to protect the homepage from __clickjacking__. Your task is to fill in the Javascript method called `makeThisFrameOnTop()`. Your code should compare window.top and window.self to find out if the top window and the current site's window are the same object (as they should be). If not, use the Location Object to set the location of the top window to be the same as the location of the current site's window. This should be a simple method and take no more than a few lines of code. Test it out and confirm that your script successfully stops the __clickjacker__.
+Write the frame-busting script. Open the file `cupcakes/index.html`, which contains code for the Alice's Cupcakes homepage. We would like to protect the homepage from __clickjacking__. Your task is to fill in the Javascript method called `makeThisFrameOnTop()`. Your code should compare `window.top` and `window.self` to find out if the top window and the current site's window are the same object (as they should be). If not, use the Location Object to set the location of the top window to be the same as the location of the current site's window. This should be a simple method and take no more than a few lines of code. Test it out and confirm that your script successfully stops the __clickjacker__.
 
-Reminder. Remember that any time you make changes to one of the websites, you may need to clear the browser's cache and reload the page for the changes to take effect.
+__Example:__
+```JavaScript
+if (window.top !== window.self) {
+    window.top.location = window.self.location;
+}
+```
+
+__Reminder.__ Remember that any time you make changes to one of the websites, you may need to clear the browser's cache and reload the page for the changes to take effect.
 
 __Questions:__
 
 5. What happens when you navigate to the attacker's site now?
 6. What happens when you click the button?
 
-### Attacker Countermeasure (Bust the Buster)
+### Task 3: Attacker Countermeasure (Bust the Buster)
 
-Disable the frame-busting script. Now let's explore how an attacker can create a workaround for front-end clickjacking defenses like frame busting. There are multiple workarounds, but one of the simplest in the current scenario is to add the sandbox attribute to the malicious `iframe`. Read more about the sandbox attribute on this page about iframes, then add the sandbox attribute to the `iframe` in `attacker.html` and answer the following questions.
+Disable the frame-busting script. Now let's explore how an attacker can create a workaround for front-end clickjacking defenses like frame busting. There are multiple workarounds, but one of the simplest in the current scenario is to add the sandbox attribute to the malicious `iframe`. Read more about the sandbox attribute on this page about iframes: [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) Then add the sandbox attribute to the `iframe` in `attacker.html` and answer the following questions.
 
 __Questions:__
 
