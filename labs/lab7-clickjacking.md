@@ -66,6 +66,14 @@ Embed the defender's site (Alice's cupcakes) into the attacker's site.
 
 - Add an `iframe` HTML element in `attacker.html` that pulls from `https://spiderwebdev#.xyz/cupcakes/`.
 - Modify the CSS in `attacker.css` using the height, width, and position attributes to make the iframe cover the whole page and the button overlay the `iframe`.
+For example:
+```HTML
+    position: absolute; 
+    border: none;
+    height: 100%;
+    width: 100%;
+```
+
 - Hints:
     - View the html files in the `examples` folders and load them in the browser to see the results. 
     - Explicitly set the `iframe` to have no border.
