@@ -8,7 +8,12 @@
 
 ## Overview of Clickjacking
 
-__Clickjacking__ is an attack that tricks a user into clicking on something they do not intend to when visiting a webpage, thus "hijacking" the click. In this lab, we will explore a common attack vector for __clickjacking__: the attacker creates a webpage that loads the content of a legitimate page but overlays one or more of its buttons with invisible button(s) that trigger malicious actions. When a user attempts to click on the legitimate page's buttons, the browser registers a click on the invisible button instead, triggering the malicious action.
+![Clickjacking](../assets/images/Clickjacking.png "Clickjacking")
+
+
+[__Clickjacking__](https://en.wikipedia.org/wiki/Clickjacking) is an attack that tricks a user into clicking on something they do not intend to when visiting a webpage, thus "hijacking" the click. It exploits the ability to load a transparent layer over a web page and have the user's input affect the transparent layer without the user noticing.
+
+In this lab, we will explore a common attack vector for __clickjacking__: the attacker creates a webpage that loads the content of a legitimate page but overlays one or more of its buttons with invisible button(s) that trigger malicious actions. When a user attempts to click on the legitimate page's buttons, the browser registers a click on the invisible button instead, triggering the malicious action.
 
 Example scenario. Suppose an attacker acquires the domain `starbux.com` and creates a website with that URL. The site first loads the legitimate target website `starbucks.com` in an iframe element spanning the entire webpage, so that the malicious `starbux.com` website looks identical to the legitimate `starbucks.com` website. The attacker's site then places an invisible button on top of the _Menu_ button on the displayed starbucks page; the button triggers a 1-click purchase of the attacker's product on Amazon. If the user is logged on to Amazon when they try to click the legitimate button, the inadvertent click on the invisible button will make the unintended purchase without the user's knowledge or consent.
 
@@ -98,5 +103,11 @@ Questions:
 9. What happens when you click the button on the attacker's site?
 
 
+
+### Learn more
+
+There are other ways to perform clickjacking besides the one explored in this lab, and many
+possible malicious consequences beyond the ones suggested here. To learn more about clickjacking, visit
+the Open Web Application Security Project (OWASP) page on Clickjacking here. [https://owasp.org/www-community/attacks/Clickjacking](https://owasp.org/www-community/attacks/Clickjacking)
 
 
