@@ -3,7 +3,7 @@
 * First read this page then start working through the lab with the GitHub classroom link below. 
 * The files that you need to complete this lab are also found in the GitHub repository.
 * Put your answers in the `README.md` file in the GitHub repository.
-* Github Classroom Link: []()
+* Github Classroom Link: [https://classroom.github.com/a/LoqeON-y](https://classroom.github.com/a/LoqeON-y)
 
 
 ## Overview of Clickjacking
@@ -126,8 +126,14 @@ __Questions:__
 
 ### Learn more
 
-There are other ways to perform clickjacking besides the one explored in this lab, and many
-possible malicious consequences beyond the ones suggested here. To learn more about clickjacking, visit
-the Open Web Application Security Project (OWASP) page on Clickjacking here. [https://owasp.org/www-community/attacks/Clickjacking](https://owasp.org/www-community/attacks/Clickjacking)
+There are other ways to perform clickjacking besides the one explored in this lab, and many possible malicious consequences beyond the ones suggested here. To learn more about clickjacking, visit the Open Web Application Security Project (OWASP) page on Clickjacking here. [https://owasp.org/www-community/attacks/Clickjacking](https://owasp.org/www-community/attacks/Clickjacking)
+
+
+
+#### Acknowledgements
+
+This lab is a modified remix of a Creative Commons lab created by Collin Howland, Faith Letzkus, Julio Trujillo, and Steve Cole at Washington University
+in St. Louis. This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+License.
 
 
