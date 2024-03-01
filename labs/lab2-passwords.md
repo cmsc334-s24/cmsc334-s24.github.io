@@ -77,7 +77,7 @@ A __mask__ is a simple string that configures the keyspace of the password candi
 
 ### Dictionary attack (aka. Wordlist attack)
 
-[Dictionary Attack](https://hashcat.net/wiki/doku.php?id=dictionary_attack):  All that is needed is to read line by line from a textfile (aka “dictionary” or “wordlist”) and try each line as a password candidate. 
+[Dictionary Attack](https://hashcat.net/wiki/doku.php?id=dictionary_attack):  All that is needed is to read line by line from a textfile (aka "dictionary" or "wordlist") and try each line as a password candidate. 
 
 1. Copy the example.dict file to your home directory.
     ```
