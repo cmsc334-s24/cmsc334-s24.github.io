@@ -70,9 +70,9 @@ sort: 4
     - Add the following lines to the file
     ```
         Host kali
-        HostName 44.201.224.29
-        User username
-        IdentityFile ~/.ssh/id_rsa
+            HostName 44.201.224.29
+            User username
+            IdentityFile ~/.ssh/id_rsa
     ```
     - **Replace username with your username**. For example, dbalash for me. 
     - Save and exit nano, by typing Ctrl-X, the type Y (for yes), and hit enter to accept the file name to save to is ./ssh/config.

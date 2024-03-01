@@ -41,18 +41,22 @@ The following is required to earn full credit for the reading discussion assignm
 
 ---
 
-### Chapter 1 - Due January 23, 11:59 PM
+### Chapter 1 - Security Concepts and Principles - Due January 23, 11:59 PM
 Link: [Chapter 1](https://people.scs.carleton.ca/~paulv/toolsjewels/TJrev1/ch1-rev1.pdf)
 <br />
 Total points: 10 
 
-### Chapter 3 - Due January 30, 11:59 PM
+### Chapter 3 - User Authentication - Due January 30, 11:59 PM
 Link: [Chapter 3 (Sections 3.1 - 3.7)](https://people.scs.carleton.ca/~paulv/toolsjewels/TJrev1/ch3-rev1.pdf)
 <br />
 Total points: 10 
 
-### Chapter 6 - Due February 15, 11:59 PM
+### Chapter 6 - Software Security - Due February 15, 11:59 PM
 Link: [Chapter 6 (Sections 6.1 - 6.4, and 6.5 - 6.8)](https://people.scs.carleton.ca/~paulv/toolsjewels/TJrev1/ch6-rev1.pdf)
 <br />
 Total points: 10 
 
+### Chapter 9 - Web and Browser Security - Due March 21, 11:59
+Link: [Chapter 9](https://people.scs.carleton.ca/~paulv/toolsjewels/TJrev1/ch9-rev1.pdf)
+<br />
+Total points: 10 
