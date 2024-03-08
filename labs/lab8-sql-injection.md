@@ -15,12 +15,6 @@ Many web applications take inputs from users, and then use these inputs to const
 
 In this lab, we have created a web application that is vulnerable to the SQL injection attack. Our web application includes the common mistakes made by many web developers. Your goal is to find ways to exploit the SQL injection vulnerabilities, demonstrate the damage that can be achieved by the attack, and master the techniques that can help defend against such type of attacks.
 
-This lab covers the following topics:
-- SQL statements: `SELECT` and `UPDATE` statements
-- SQL injection
-- Prepared statements
-
-
 ## Lab Setup
 
 The URL for the web application is: [https://spiderwebdev10.xyz/sql/](https://spiderwebdev10.xyz/sql)
@@ -31,9 +25,9 @@ The URL for the database is: [https://spiderwebdev10.xyz/phpmyadmin/](https://sp
 ### About the Web Application
 
 The web application is a simple employee management application. Employees can view and update their personal information in the database through this web application. There are two roles in this web application: 
-- `Administrator` is a privilege role and can manage each individual
+- `Administrator` is a privileged role and can manage each individual
 employees' profile information
-- `Employee` is a normal role and can view or update his/her own profile 
+- `Employee` is a normal role that can view or update their own profile 
 information. All employee information is described in table below.
 
 | Name  | EID        | Password   | Salary  | birth | SSN | NickName | Email | Address | PhoneNumber |
@@ -83,6 +77,13 @@ WHERE name='$name' and password='$pwd';
 
 You can replace the value of `$name` with the injection string and test it using the MySQL console. This approach can help you construct a syntax-error  free injection string before launching the real attack.
 
+__Question:__
+
+* What SQL command did run after you replaced the value of `$name`?
+* What was returned by the database?
+* Explain how this works. 
+
+
 ### Task 2: SQL Injection Attack on `SELECT` Statement
 
 SQL injection is technique through which attackers can execute their own malicious SQL statements generally referred as malicious payload. Through the malicious SQL statements, attackers can steal information from the victim database; even worse, they may be able to make changes to the database. Our employee management web application has SQL injection vulnerabilities, which mimic 
@@ -92,31 +93,22 @@ We will use the login page from [https://spiderwebdev10.xyz/sql/](https://spider
 
 ![Login](../assets/images/EmployeeLogin.png "Login")
 
-It asks users to provide a username and a password. The web application authenticate users based on these two pieces of data, so only employees who know their passwords are allowed to log in. Your job, as an attacker, is to log into the web application without knowing any employee's credential. 
+It asks users to provide a username and a password. The web application authenticate users based on these two pieces of data, so only employees who know their passwords are allowed to log in. Your job, as an attacker, is to log into the web application without knowing any employee's credentials. 
 
-To help you started with this task, we explain how authentication is implemented in the web application. The PHP code `unsafe_home.php`, located in the `/var/www/html/sql/` directory, is used to conduct user authentication. The following code snippet show how users are authenticated. 
+To help you get started with this task, we explain how authentication is implemented in the web application. The PHP code `unsafe_home.php`, located in the `/var/www/html/sql/` directory, is used to conduct user authentication. The following code snippet shows how users are authenticated. 
 
+__unsafe_home.php__
 ```php
 $input_uname = $_GET['username'];
 $input_pwd = $_GET['Password'];
 $hashed_pwd = sha1($input_pwd);
 ...
-$sql = "SELECT id, name, eid, salary, birth, ssn, address, email, 
-               nickname, Password
+
+$sql = "SELECT id, name, eid, salary, birth, ssn, address, email, nickname, Password
         FROM credential
         WHERE name= '$input_uname' and Password='$hashed_pwd'";
-$result = $conn -> query($sql);
 
-// The following is Pseudo Code 
-if(id != NULL) {
-  if(name=='admin') {
-     return All employees information;
-  } else if (name != NULL) {
-    return employee information;
-  }
-} else {
-  Authentication Fails;
-}
+$result = $conn -> query($sql);
 ```
 
 The above SQL statement selects personal employee information such as id, name, salary, ssn, etc. from the `credential` table. The SQL statement uses two variables `input_uname` and `hashed_pwd`, where `input_uname` holds the string typed by users in the username field of the login page, while `hashed_pwd` holds the `sha1` hash of the password typed by the user. The program checks whether any record matches with the provided username and password; if there is a match, the user is successfully authenticated, and is given the corresponding employee information. If there is no match, the authentication fails. 
@@ -134,14 +126,13 @@ __Question:__
 
 #### Task 2.2: SQL Injection Attack From Command Line 
 
-Your task is to repeat Task 2.1, but you need to do it without using the webpage. You can use command line tools, such as `curl`, which can send HTTP requests. One thing that is worth mentioning is that if you want to include multiple parameters in HTTP requests, you need to put the URL and the parameters between a pair of single quotes; otherwise, the special characters used to separate parameters (such as `&`) will be interpreted by the shell program, changing the meaning of the command. The following example shows how to send an HTTP GET request to our 
-web application, with two parameters (`username` and `Password`) attached:
+Your task is to repeat Task 2.1, but you need to do it without using the webpage. You can use command line tools, such as `curl`, which can send HTTP requests. One thing that is worth mentioning is that if you want to include multiple parameters in HTTP requests, you need to put the URL and the parameters between a pair of single quotes; otherwise, the special characters used to separate parameters (such as `&`) will be interpreted by the shell program, changing the meaning of the command. The following example shows how to send an HTTP `GET` request to our web application, with two parameters (`username` and `Password`) attached:
 
 ```bash
-$ curl 'spiderwebdev10.xyz/unsafe_home.php?username=alice&Password=abc>'
+$ curl 'spiderwebdev10.xyz/unsafe_home.php?username=alice&Password=abc'
 ```
 
-If you need to include special characters in the username or Password fields, you need to encode them properly, or they can change the meaning of your requests. If you want to include single quote in those fields, you should use `%27` instead; if you want to include white space, you should use `%20`. In this task, you do need to handle HTTP encoding while sending requests using curl.
+If you need to include special characters in the username or Password fields, you need to encode them properly, or they can change the meaning of your requests. If you want to include single quote in those fields, you should use `%27` instead; if you want to include white space, you should use `%20`. In this task, you do need to handle HTTP encoding while sending requests using `curl`.
 
 __Question:__
 * What `curl` command did you use to attack the admin account via the command line? 
