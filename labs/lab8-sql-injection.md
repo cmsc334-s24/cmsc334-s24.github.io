@@ -129,7 +129,7 @@ __Question:__
 Your task is to repeat Task 2.1, but you need to do it without using the webpage. You can use command line tools, such as `curl`, which can send HTTP requests. One thing that is worth mentioning is that if you want to include multiple parameters in HTTP requests, you need to put the URL and the parameters between a pair of single quotes; otherwise, the special characters used to separate parameters (such as `&`) will be interpreted by the shell program, changing the meaning of the command. The following example shows how to send an HTTP `GET` request to our web application, with two parameters (`username` and `Password`) attached:
 
 ```bash
-$ curl 'spiderwebdev10.xyz/unsafe_home.php?username=alice&Password=abc'
+$ curl 'spiderwebdev10.xyz/sql/unsafe_home.php?username=alice&Password=abc'
 ```
 
 If you need to include special characters in the username or Password fields, you need to encode them properly, or they can change the meaning of your requests. If you want to include single quote in those fields, you should use `%27` instead; if you want to include white space, you should use `%20`. In this task, you do need to handle HTTP encoding while sending requests using `curl`.
