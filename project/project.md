@@ -69,7 +69,7 @@ Replicating a study involves several key steps:
 
 ## Instructions
 
-- Complete all of the work in a __Group__ GitHub repository: []()
+- Complete all of the work in a __Group__ GitHub repository: [https://classroom.github.com/a/acU-T2Si](https://classroom.github.com/a/acU-T2Si)
 - __Name your group using a combination of the first names of the group members.__ 
 
 There are four concrete steps to the final project, as follows:

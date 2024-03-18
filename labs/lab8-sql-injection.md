@@ -137,16 +137,6 @@ If you need to include special characters in the username or Password fields, yo
 __Question:__
 * What `curl` command did you use to attack the admin account via the command line? 
 
-#### Task 2.3: Append a New SQL Statement
-
-In the above two attacks, we can only steal information from the database; it will be better if we can modify the database using the same vulnerability in the login page.  An idea is to use the SQL injection attack to turn one SQL statement into two, with the second one being the `update` or `insert` statement. In SQL, semicolon (`;`) is used to separate two SQL statements. Please try to run two SQL statements via the login page. 
-
-__Important note:__ Please don't run `delete` any columns or tables.
-
-
-__Question:__
-* What two SQL commands did you run as an SQL injection attack? 
-
 
 ### Task 3: SQL Injection Attack on `UPDATE` Statement
 
