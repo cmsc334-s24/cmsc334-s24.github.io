@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This project provides an opportunity for you to apply the concepts and techniques you've learned this semester, and is intended to challenge your analytical, technical, and creative skills. Whether you're building a security tool, conducting vulnerability analysis, or developing a secure application, this project will deepen your understanding of computer security.
+This project provides an opportunity for you to apply the concepts and techniques you've learned this semester, and is intended to challenge your analytical, technical, and creative skills. Whether you're building a security tool, conducting vulnerability analysis, or evaluating security research, this project will deepen your understanding of computer security.
 
 The amount of work required for the project should be roughly three course labs, and you will have lab time to work with your team on the project. 
 
@@ -44,14 +44,14 @@ If you choose to build a security enhancing tool, you may choose from one of the
 
 #### Exploiting a Real-World Vulnerability
 
-If you are interested in a more attack-oriented final project, your goal for this project is to pick an __interesting__ virtual machine (VM) from VulnHub [https://www.vulnhub.com/](https://www.vulnhub.com/) and try to find vulnerabilities in it. Your grade for the project will be based on what kinds of vulnerabilities you find. Beware that there's no guarantee of success with this (or any other attack-oriented) project, because you may accidentally choose a very secure VM, and might end up finding no vulnerabilities. However, if you have an interesting approach to finding vulnerabilities (e.g., you have designed a new tool for finding bugs), you may receive a good grade even without finding real vulnerabilities.
+If you are interested in a more attack-oriented final project, your goal for this project is to pick an __interesting__ virtual machine (VM) from VulnHub [https://www.vulnhub.com/](https://www.vulnhub.com/) and try to find vulnerabilities in it. Your grade for the project will be based on what kinds of vulnerabilities you find. 
 
-Your grade in this project depends on how interesting the vulnerabilities are that you have found, or how interesting the techniques are that you used to discover those vulnerabilities. For example, obtaining passwords through traditional brute-forcing techniques is not interesting. The general scale of work expected should be comparable to the amount of work involved in building a security enhancing tool (see project above). Of course, much of your work will involve reading and understanding an existing VM, and carefully constructing proof-of-concent exploits to demonstrate the vulnerabilities that you discovered, and the total amount of resulting code may be minimal.
+Your grade in this project depends on how interesting the vulnerabilities are that you have found, or how interesting the techniques are that you used to discover those vulnerabilities. For example, obtaining passwords through traditional brute-forcing techniques is not interesting. The general scale of work expected should be comparable to the amount of work involved in building a security enhancing tool (see project above). Much of your work will involve reading and understanding an existing VM, and carefully __constructing proof-of-concept exploits to demonstrate the vulnerabilities that you discovered__.
 
 
 #### Replicating an Existing Computer Security Study
 
-In this project option, you will select an existing research study (paper) in the field of computer security to replicate. The goal is to validate the findings of the original study through your own independent analysis and experimentation. This project encourages a deep understanding of the study's methodologies, findings, and implications for the field of computer security.
+In this project option, you will select an existing research study in the field of computer security to replicate. The goal is to validate the findings of the original study through your own independent analysis and experimentation. This project encourages a deep understanding of the study's methodologies, findings, and implications for the field of computer security.
 
 Replicating a study involves several key steps:
 
@@ -69,32 +69,23 @@ Replicating a study involves several key steps:
 
 ## Instructions
 
-- Complete all of the work in a Group GitHub repository: []()
+- Complete all of the work in a __Group__ GitHub repository: []()
 - __Name your group using a combination of the first names of the group members.__ 
 
 There are four concrete steps to the final project, as follows:
 
-1. Form a Group
-
+1. __Form a Group__
 Decide on the project you would like to work on. Discuss the idea with others. Use these discussions to help find other students interested in similar ideas for forming a group. I will provide feedback on project ideas.
-
-2. Project Proposal
-
+2. __Project Proposal__
 Discuss your proposed idea with me over the next week, before the proposal deadline, to flesh out the exact problem you will be addressing, how you will go about doing it, and what tools you might need in the process. By the proposal deadline, you must submit a 1-page proposal describing:
-
-    - Your group members list
-    - The problem you want to address
-    - How you plan to address it
-    - What are you proposing to specifically design and implement
-
-3. Write-up and Code
-
+- Your group members list
+- The problem you want to address
+- How you plan to address it
+- What are you proposing to specifically design and implement
+3. __Write-up and Code__
 Write a document describing the design and implementation of your project, and turn it in along with your project's code by the final deadline. The document should be about 1-page of text that helps me understand what problem you solved, and what your code does. 
-
-4. Project Presentation (__ Thursday May 2nd, 2pm - 5pm__)
-
+4. __Project Presentation - Thursday May 2nd, 2pm__
 Prepare a short (7 - 10 minutes) in-class presentation about the work that you have done for your project. 
-
 
 ## Project Grading Rubric (Total: 100 Points)
 
@@ -123,7 +114,7 @@ Prepare a short (7 - 10 minutes) in-class presentation about the work that you h
 - **Clarity and Organization of Presentation (15 points):**
   - Clear articulation of project goals, methodology, and outcomes (10 points)
   - Logical flow and organization of presentation content (5 points)
-- **Engagement and Communication (15 points):**
-  - Ability to engage the audience and convey enthusiasm for the project (10 points)
-  - Effectiveness in answering questions and discussing the project with the audience (5 points)
+- **Presentation Media (15 points):**
+  - Slides or multimedia quality (10 points)
+  - Live demonstration of working project (5 points)
 
