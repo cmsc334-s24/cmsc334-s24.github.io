@@ -76,13 +76,13 @@ There are four concrete steps to the final project, as follows:
 
 1. __Form a Group__
 Decide on the project you would like to work on. Discuss the idea with others. Use these discussions to help find other students interested in similar ideas for forming a group. I will provide feedback on project ideas.
-2. __Project Proposal__
-Discuss your proposed idea with me over the next week, before the proposal deadline, to flesh out the exact problem you will be addressing, how you will go about doing it, and what tools you might need in the process. By the proposal deadline, you must submit a 1-page proposal describing:
+2. __Project Proposal - Friday March 22nd__
+Discuss your proposed idea with me over the this week, before the proposal deadline, to flesh out the exact problem you will be addressing, how you will go about doing it, and what tools you might need in the process. By the proposal deadline, you must submit a 1-page proposal describing:
 - Your group members list
 - The problem you want to address
 - How you plan to address it
 - What are you proposing to specifically design and implement
-3. __Write-up and Code__
+3. __Write-up and Code - Friday April 26nd__
 Write a document describing the design and implementation of your project, and turn it in along with your project's code by the final deadline. The document should be about 1-page of text that helps me understand what problem you solved, and what your code does. 
 4. __Project Presentation - Thursday May 2nd, 2pm__
 Prepare a short (7 - 10 minutes) in-class presentation about the work that you have done for your project. 
