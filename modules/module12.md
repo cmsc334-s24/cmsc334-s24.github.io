@@ -119,7 +119,7 @@ $ ssh cmsc334-2
 
 In the new terminal ping the host that is sniffing `icmp` packets.
 ```shell
-$ ping cmsc334-1
+$ ping x-mcs-cmsc334-1
 ```
 
 * In the terminal window with the sniffer what do you see? Add this to your __README.md__ file.
