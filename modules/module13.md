@@ -116,8 +116,8 @@ fake_MAC = "aa:bb:cc:dd:ee:ff"
 
 # Construct ethernet header
 ethernet = Ether()
-ethernet.dst = target_IP 
-ethernet.src = fake_IP
+ethernet.dst = target_MAC 
+ethernet.src = fake_MAC
 
 # Construct ARP packet
 arp = ARP()
