@@ -102,6 +102,7 @@ Being able to sniff packets is very important in this module, because if things 
 
 The objective of this task is to use packet spoofing to launch an ARP cache poisoning attack on a target, such that when two victim machines __A__ and __B__ try to communicate with each other, their packets will be intercepted by the attacker, who can make changes to the packets, and can thus become the machine in the middle between __A__ and __B__. This is called Machine-In-The-Middle (MITM) attack. In this task, we focus on the ARP cache poisoning part. The following code skeleton shows how to construct an ARP packet using `Scapy`.
 
+__arp_attack.py__
 ```python
 #!/usr/bin/env python
 from scapy.all import *
@@ -135,6 +136,13 @@ frame = ethernet/arp
 sendp(frame)
 ```
 
+To run the program.
+
+```shell
+$ chmod u+x arp_attack.py
+$ sudo su
+# ./arp_attack
+```
 
 The above program constructs and sends an ARP packet. Please set necessary attribute names/values to define your own ARP packet. We can use `ls(ARP)` and `ls(Ether)` to see the attribute names of the `ARP` and `Ether` classes. If a field is not set, a default value will be used (see the third column of the output):
 
