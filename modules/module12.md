@@ -14,21 +14,21 @@ Packet sniffing and spoofing are two important concepts in network security; the
 
 ## Setup
 
-Add the following to your .ssh/config file on your local machine, and replace `[YOUR NET ID]` with your UR netid. 
+Add the following to your .ssh/config file on your local machine, and replace `yournetid` with your UR netid. 
 ```
 Host cmsc334-1
 HostName x-mcs-cmsc334-1.richmond.edu
-User [YOUR NET ID]
+User yournetid
 IdentityFile ~/.ssh/id_rsa_cmsc334
 
 Host cmsc334-2
 HostName x-mcs-cmsc334-2.richmond.edu
-User [YOUR NET ID]
+User yournetid
 IdentityFile ~/.ssh/id_rsa_cmsc334
 
 Host cmsc334-3
 HostName x-mcs-cmsc334-3.richmond.edu
-User [YOUR NET ID]
+User yournetid
 IdentityFile ~/.ssh/id_rsa_cmsc334
 ```
 
