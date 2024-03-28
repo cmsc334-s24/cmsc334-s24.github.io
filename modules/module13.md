@@ -3,6 +3,21 @@
 * Put your answers in the `README.md` file in the GitHub repository.
 * Github Classroom Link: [https://classroom.github.com/a/JyHHg_4W](https://classroom.github.com/a/JyHHg_4W)
 
+
+## Update for this module
+
+For this module, simply send the spoofed ARP packet and record the tcpdump output. It is okay if the ARP cache poisoning does not work.
+
+Use this `tcpdump` command to sniff the arp network traffic:
+
+```shell
+# sudo su
+# tcpdump -i eth0 arp
+```
+
+Put the output in your README.md file.
+
+
 ## Overview
 
 The Address Resolution Protocol (ARP) is a communication protocol used for discovering the link layer address, such as the MAC address, given an IP address. The ARP protocol is a very simple protocol, and it does not implement any security measure. The ARP cache poisoning attack is a common attack against the ARP protocol. Using such an attack, attackers can fool the victim into accepting forged IP-to-MAC mappings. This can cause the victim’s packets to be redirected to the computer with the forged MAC address, leading to potential machine-in-the-middle attacks.
