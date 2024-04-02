@@ -33,6 +33,12 @@ __Figure 1.__ Local Area Network
 
 ## Task 1: SYN Flooding Attack
 
+Note: 
+- Use cmsc334-1 as the target host to attack with your __SYN__ packets.
+- Use cmsc334-2 as the host that you will use to `telnet` into cmsc334-1.
+- Use cmsc334-3, cmsc334-4, cmsc334-5 as the hosts that you will use to launch your __SYN__ attack.
+
+
 __SYN__ flood is a form of DoS attack in which attackers send many __SYN__ requests to a victim's TCP port, but the attackers have no intention to finish the 3-way handshake procedure. Attackers either use spoofed IP address or do not continue the procedure. Through this attack, attackers can flood the victim’s queue that is used for half-opened connections, i.e. the connections that has finished __SYN__, __SYN/ACK__, but has not yet
 gotten a final __ACK__ back. When this queue is full, the victim cannot take any more connection. Figure 2 illustrates the attack.
 
