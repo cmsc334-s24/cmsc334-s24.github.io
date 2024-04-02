@@ -33,7 +33,7 @@ __Figure 1.__ Local Area Network
 
 ## Task 1: SYN Flooding Attack
 
-Note: 
+__Note:__ 
 - Use cmsc334-1 as the target host to attack with your __SYN__ packets.
 - Use cmsc334-2 as the host that you will use to `telnet` into cmsc334-1.
 - Use cmsc334-3, cmsc334-4, cmsc334-5 as the hosts that you will use to launch your __SYN__ attack.
@@ -145,6 +145,11 @@ __Note A:__ A kernel mitigation mechanism. If machine X has never made a TCP con
 
 ## Task 2: TCP RST Attacks on telnet Connections
 
+__Note:__ 
+- Use cmsc334-2 as the host that you will use to `telnet` into cmsc334-1.
+- Use cmsc334-1 to launch the __RST__ packets.
+
+
 The TCP __RST__ Attack can terminate an established TCP connection between two victims. For example, if there is an established `telnet` connection (TCP) between two users A and B, attackers can spoof a __RST__ packet from Host A to Host B, breaking this existing connection. To succeed in this attack, attackers need to correctly construct the TCP __RST__ packet. In this task, you need to launch a TCP __RST__ attack from Host A to break an existing `telnet` connection between Host A and Host B. To simplify the module, we assume that the attacker and the victim are on the same LAN, i.e., the attacker can observe the TCP traffic between Host A and Host B.
 
 Launching the attack. Please use Scapy to conduct the TCP __RST__ attack. Python code is provided in the following, which will launch the attack automatically. The code will we get parameters from sniffed packets, so the attack is automated. 
@@ -193,6 +198,10 @@ Verify that the `telnet` connection was dropped.
 
 
 ## Task 3: TCP Session Hijacking
+
+__Note:__ 
+- Use cmsc334-2 as the host that you will use to `telnet` into cmsc334-1.
+- Use cmsc334-2 to launch the hijacking attack.
 
 ![Session Hijack](../assets/images/TCPSessionHijack.png "Session Hijack")
 
@@ -248,6 +257,10 @@ $ ./tcp_hijack.py
 
 
 ## Task 4: Creating Reverse Shell using TCP Session Hijacking
+
+__Note:__ 
+- Use cmsc334-2 as the host that you will use to `telnet` into cmsc334-1.
+- Use cmsc334-2 to launch the hijacking attack.
 
 When attackers are able to inject a command to the victim’s machine using TCP session hijacking, they are not interested in running one simple command on the victim machine; they are interested in running many commands. Obviously, running these commands all through TCP session hijacking is inconvenient. What attackers want to achieve is to use the attack to set up a back door, so they can use this back door to conveniently conduct further operations.
 
