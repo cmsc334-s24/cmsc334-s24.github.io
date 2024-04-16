@@ -82,7 +82,7 @@ Discuss your proposed idea with me over the this week, before the proposal deadl
 - The problem you want to address
 - How you plan to address it
 - What are you proposing to specifically design and implement
-3. __Write-up and Code - Friday April 26nd__
+3. __Write-up and Code - Friday April 26th__
 Write a document describing the design and implementation of your project, and turn it in along with your project's code by the final deadline. The document should be about 1-page of text that helps me understand what problem you solved, and what your code does. 
 4. __Project Presentation - Thursday May 2nd, 2pm__
 Prepare a short (7 - 10 minutes) in-class presentation about the work that you have done for your project. 
